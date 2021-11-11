@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { regexp } = require('sequelize/types/lib/operators');
+//const { regexp } = require('sequelize/types/lib/operators');
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
@@ -107,7 +107,7 @@ router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
     where: {
-      id: regexp.params.id
+      id: reg.params.id
     }
   })
   .then((product) => res.status(200).json(product))
