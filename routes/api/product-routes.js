@@ -21,8 +21,9 @@ router.get('/:id', (req, res) => {
   // be sure to include its associated Category and Tag data
 Product.findOne({
   where: {
-    id: regexp.params.id,
-  },include: [{model:Category}, {model: Tag}],
+    id: reg.params.id,
+  },
+  include: [{model:Category}, {model: Tag}],
 })
 .then((product)=> res.json(product))
 .catch((err)=>res.status(500).json(err))
