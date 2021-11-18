@@ -19,7 +19,7 @@
   npmi, express, .env,
 
   ## Purpose:
-  To test learn to connect your database MySQL to your application and check it functionality.
+  To learn to connect yourapplicationto your MySQL database and check it functionality using "Postman or Imsomnia".
 
   ## Licenses:
   None
