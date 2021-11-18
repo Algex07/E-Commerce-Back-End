@@ -12,7 +12,7 @@
   * [Links](#links)
 
   ## Description:
-  This application demonstrate the functionality of connecting MySQL to my application and test in in Postman.
+  This application demonstrate the functionality of connecting MySQL to my application and test in Postman.
   
  
   ## Installation:
