@@ -1,5 +1,4 @@
 const router = require('express').Router();
-//const { regexp } = require('sequelize/types/lib/operators');
 const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
@@ -8,9 +7,9 @@ router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
 Tag.findAll({
-  include: [{model:Product}, {model: ProductTag}]
+  include: [{model:Product, through: ProductTag}]
 })
-.then((tag)=> res.json(tag))
+.then((tags)=> res.json(tags))
 .catch((err)=>res.status(500).json(err))
 });
 
@@ -19,13 +18,13 @@ router.get('/:id', (req, res) => {
   // be sure to include its associated Product data
 Tag.findOne({
   where: {
-    id: reg.params.id,
+    id: req.params.id,
 
   },
-  include: [{model: Product}, {model: ProductTag}],
+  include: [{model: Product,through: ProductTag}],
 })
 .then((tag)=>res.json(tag))
-.catch((err)=>res.status(500).json(err))
+.catch((err)=>res.status(404).json(err))
 });
 
 router.post('/', (req, res) => {
